@@ -22,54 +22,77 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{ url_for('main.home') }}"><b>WRITART PROMOTION</b></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('main.team') }}">TEAM</a>
-        </li>
+<!--    <nav class="navbar navbar-expand-lg bg-body-tertiary">-->
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand" href="{{ url_for('main.home') }}"><b>WRITART PROMOTION</b></a>-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="{{ url_for('main.team') }}">TEAM</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--      <form class="nav_flex" >-->
+<!--      {% if not logged_in %}-->
+<!--        <ul class="navbar-nav">-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{{url_for('account.login')}}">Login/Register</a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      {% else %}-->
+<!--        <ul class="navbar-nav">-->
+<!--          {% if admin in current_user.role %}-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{{url_for('manager.home')}}">Manager</a>-->
+<!--          </li>-->
+<!--          {% endif %}-->
+<!--          {% if animation_admin in current_user.role %}-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{{url_for('animation_admin.home')}}">Animation_Admin</a>-->
+<!--          </li>-->
+<!--          {% endif %}-->
+<!--          {% if client in current_user.role %}-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{{url_for('client_section.client_dashboard')}}">DASHBOARD</a>-->
+<!--          </li>-->
+<!--          {% endif %}-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{{url_for('account.home')}}">My Account</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="{{url_for('account.logout')}}">Log Out</a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      {% endif %}-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+  <header>
+    <div id="brand"><a href="/">WRITART PROMOTION</a></div>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('main.team') }}">Team</a></li>
+        <li><a href="{{ url_for('main.ad_samples') }}">Ad samples</a></li>
+        <li id="login"><a href="{{ url_for('account.login') }}">Login</a></li>
+        <li id="signup"><a href="{{ url_for('account.register') }}">Signup</a></li>
       </ul>
-      <form class="nav_flex" >
-      {% if not logged_in %}
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('account.login')}}">Login/Register</a>
-          </li>
-        </ul>
-      {% else %}
-        <ul class="navbar-nav">
-          {% if admin in current_user.role %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('manager.home')}}">Manager</a>
-          </li>
-          {% endif %}
-          {% if animation_admin in current_user.role %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('animation_admin.home')}}">Animation_Admin</a>
-          </li>
-          {% endif %}
-          {% if client in current_user.role %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('client_section.client_dashboard')}}">DASHBOARD</a>
-          </li>
-          {% endif %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('account.home')}}">My Account</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('account.logout')}}">Log Out</a>
-          </li>
-        </ul>
-      {% endif %}
-      </form>
+    </nav>
+    <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+      <ul class="mobile-menu">
+        <li><a href="{{ url_for('main.team') }}">Team</a></li>
+        <li><a href="{{ url_for('main.ad_samples') }}">Ad samples</a></li>
+        <li id="login"><a href="{{ url_for('account.login') }}">Login</a></li>
+        <li id="signup"><a href="{{ url_for('account.register') }}">Signup</a></li>
+      </ul>
     </div>
-  </div>
-</nav>
+  </header>
 
   {% block content %}
   {% endblock %}
@@ -84,6 +107,6 @@
         <p>&#169 {{ current_year }} | promotion.writart.com | All rights reserved | Any sort of infringement may attract legal consequences.</p>
       </div>
   </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
+  <script src="{{ url_for('static', filename='js/base.js')}}"></script>
 </html>

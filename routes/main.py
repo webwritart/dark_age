@@ -20,6 +20,11 @@ def team():
                            current_year=current_year)
 
 
+@main.route('/ad_samples', methods=['GET', 'POST'])
+def ad_samples():
+    return render_template('ad_samples.html', logged_in=current_user.is_authenticated,
+                           current_year=current_year)
+
 @main.route('/privacy_policy')
 def privacy_policy():
     return render_template('privacy_policy.html', current_year=current_year)
