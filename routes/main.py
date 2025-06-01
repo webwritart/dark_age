@@ -9,13 +9,9 @@ main = Blueprint('main', __name__, static_folder='static', template_folder='temp
 
 @main.route('/', methods=['GET', 'POST'])
 def home():
-    users_list = []
-    users = db.session.query(Member).all()
-    for u in users:
-        user_name = u.name
-        users_list.append(user_name)
+
     return render_template('index.html', logged_in=current_user.is_authenticated,
-                           current_year=current_year, users_list=users_list)
+                           current_year=current_year)
 
 
 @main.route('/team', methods=['GET', 'POST'])
