@@ -1,38 +1,74 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="form-center-container">
-    <div class="form-center">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                  {% for category, message in messages %}
-                    <div class="{{category}}">{{ message }}</div>
-                  {% endfor %}
-            {% endif %}
-        {% endwith %}
+<div class="full-page-form-container form-main">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+              {% for category, message in messages %}
+                <div class="{{category}}">{{ message }}</div>
+              {% endfor %}
+        {% endif %}
+    {% endwith %}
 
-        <form id="registration" action="{{ url_for('account.register') }}" method="post" onsubmit="return validateRegistration()">
-            <h2 style="text-align: center;">Register</h2>
-            <input type="text" name="name" placeholder="Name (required)" required="required" />
-            <input type="email" name="email" placeholder="Email (required)" required="required" />
-            <input type="password" minlength="5" name="password" placeholder="Password (required)" required="required" />
-            <input type="password" name="retype-password" minlength="5" placeholder="Retype Password" required="required" />
-            <input type="text" name="phone" placeholder="Phone (required)" required="required" />
-            <input type="text" name="whatsapp" placeholder="Whatsapp (if different than phone) (optional)" />
-            <label class="radio-inline radio-inp-option">
-                <input class="radio-inp" type="radio" name="sex" value="female" required> <span> Female</span>
-            </label>
-            <label class="radio-inline radio-inp-option">
-                <input class="radio-inp" type="radio" name="sex" value="male" required> <span> Male</span>
-            </label>
-            <label class="radio-inline radio-inp-option">
-                <input class="radio-inp" type="radio" name="sex" value="other" required>  <span> Other</span>
-            </label>
-            <label style="color: gray; width:100%;">Date of Birth (required)</label>
-            <input class="radio-inp" maxlength="2" type="text" name="date" placeholder="Date" required>
-            <input class="radio-inp" maxlength="2" type="text" name="month" placeholder="Month" required>
-            <input class="radio-inp" maxlength="4" type="text" name="year" placeholder="Year" required>
-            <input type="text" name="profession" maxlength="50" placeholder="Profession (required)" required/>
-            <input type="text" name="state" placeholder="State (required)" required><br>
+    <form id="registration" action="{{ url_for('account.register') }}" method="post" onsubmit="return validateRegistration()">
+        <p class="heading-medium text-left">REGISTER</p>
+        <input type="text" name="name" placeholder="Name (required)*" required="required" />
+        <input type="email" name="email" placeholder="Email (required)*" required="required" />
+        <input type="password" minlength="5" name="password" placeholder="Password (required)*" required="required" />
+        <input type="password" name="retype-password" minlength="5" placeholder="Retype Password (required)*" required="required" />
+        <input type="text" name="phone" placeholder="Phone (required)*" required="required" />
+        <input type="text" name="whatsapp" placeholder="Whatsapp (if different than phone) (optional)" />
+        <select name="sex" required>
+            <option value="default">Choose Sex (required)*</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <div style="display:flex;">
+            <label style="width:50%;">Date of Birth (required)*</label>
+            <input style="width:50%;" type="date" name="dob" min="{{min_dob}}" max="{{max_dob}}">
+        </div>
+        <input type="text" name="company" maxlength="50" placeholder="Company/Store name (optional)">
+        <select name="state" id="state" required>
+            <option value="default">Choose State (required)*</option>
+            <option value="01-Jammu & Kashmir">Jammu & Kashmir</option>
+            <option value="02-Himachal Pradesh">Himachal Pradesh</option>
+            <option value="03-Punjab">Punjab</option>
+            <option value="04-Chandigarh">Chandigarh</option>
+            <option value="05-Uttarakhand">Uttarakhand</option>
+            <option value="06-Haryana">Haryana</option>
+            <option value="07-Delhi">Delhi</option>
+            <option value="08-Rajasthan">Rajasthan</option>
+            <option value="09-Uttar Pradesh">Uttar Pradesh</option>
+            <option value="10-Bihar">Bihar</option>
+            <option value="11-Sikkim">Sikkim</option>
+            <option value="12-Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="13-Nagaland">Nagaland</option>
+            <option value="14-Manipur">Manipur</option>
+            <option value="15-Mizoram">Mizoram</option>
+            <option value="16-Tripura">Tripura</option>
+            <option value="17-Meghalaya">Meghalaya</option>
+            <option value="18-Assam">Assam</option>
+            <option value="19-West Bengal">West Bengal</option>
+            <option value="20-Jharkhand">Jharkhand</option>
+            <option value="21-Odisha">Odisha</option>
+            <option value="22-Chhattisgarh">Chhattisgarh</option>
+            <option value="23-Madhya Pradesh">Madhya Pradesh</option>
+            <option value="24-Gujarat">Gujarat</option>
+            <option value="25-Daman & Diu">Daman & Diu</option>
+            <option value="26-Dadra & Nagar Haveli & Daman & Diu">Dadra & Nagar Haveli & Daman & Diu</option>
+            <option value="27-Maharashtra">Maharashtra</option>
+            <option value="29-Karnataka">Karnataka</option>
+            <option value="30-Goa">Goa</option>
+            <option value="31-Lakshdweep">Lakshdweep</option>
+            <option value="32-Kerala">Kerala</option>
+            <option value="33-Tamil Nadu">Tamil Nadu</option>
+            <option value="34-Puducherry">Puducherry</option>
+            <option value="35-Andaman & Nicobar Islands">Andaman & Nicobar Islands</option>
+            <option value="36-Telangana">Telangana</option>
+            <option value="37-Andhra Pradesh">Andhra Pradesh</option>
+            <option value="38-Ladakh">Ladakh</option>
+            <option value="97-Other Territory">Other Territory</option>
+        </select>
 <!--            <label>Do you want Artist account? (optional)</label>-->
 <!--            <label class="radio-inline radio-inp-option">-->
 <!--                <input class="radio-inp" type="radio" name="artist_account" value="yes"> <span> Yes</span>-->
@@ -40,12 +76,10 @@
 <!--            <label class="radio-inline radio-inp-option">-->
 <!--                <input class="radio-inp" type="radio" name="artist_account" value="no"> <span> No</span>-->
 <!--            </label>-->
-            <br>
 
-            By clicking REGISTER button you agree to our <a href="{{url_for('main.privacy_policy')}}" target="_blank">privacy policy</a>
-            <button type="submit" name="submit" class="btn btn-primary btn-block btn-large" value="register">REGISTER</button>
-        </form>
-    </div>
+        By clicking REGISTER button you agree to our <a href="{{url_for('main.privacy_policy')}}" target="_blank">privacy policy</a>
+        <button type="submit" name="submit" class="btn-1" value="register">REGISTER</button>
+    </form>
 </div>
 <script src="static/js/my_account.js"></script>
 {% endblock %}

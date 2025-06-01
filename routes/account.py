@@ -271,6 +271,7 @@ def register():
 
 @account.route('/login', methods=['GET', 'POST'])
 def login():
+    instruction = 'LOGIN'
     num_list = []
     raw_num_list = []
     result = db.session.query(Member)
@@ -365,7 +366,7 @@ def login():
                 return redirect(url_for('account.change_password'))
             return redirect(url_for('account.home', name=current_user.name.split()[0]))
 
-    return render_template("login.html", instruction='login', current_year=current_year)
+    return render_template("login.html", instruction=instruction, current_year=current_year)
 
 
 @account.route('/forgot_password', methods=['GET', 'POST'])

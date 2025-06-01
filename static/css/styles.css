@@ -1,12 +1,116 @@
 * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
 
 html { width: 100%; height:100%; overflow:auto; }
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 
 body {
 	height: auto;
 	font-family: 'Roboto', sans-serif;
     background-color: #FFFFFF;
 }
+
+/* --------------------------------------------------------- TEXT --------------------------------------------------- */
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+
+/* -------------------------------------------------------- HEADINGS ------------------------------------------------ */
+.heading-medium {
+    font-size: 2rem;
+    font-weight: 500;
+}
+.heading-small {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.heading-large {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.heading-extra-large {
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+
+/* --------------------------------------------------------- BUTTONS ------------------------------------------------ */
+.btn-1 {
+    background: #9f2ca2;
+    color: white;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    padding:1% 0%;
+    width: 100%;
+    text-decoration: none;
+}
+.btn-1:hover {
+    background: #77067a;
+    transform: scale(1.02);
+}
+
+.btn-gray {
+    border: none;
+    background: #898989;
+    color: white;
+    width: 100%;
+    padding: 1% 0%;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+.btn-gray:hover {
+    transform: scale(1.02);
+}
+
+/* --------------------------------------------------- FORMS-CONTAINERS --------------------------------------------- */
+.full-page-form-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+.full-page-form-container form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+/* ------------------------------------------------------ FORM-DESIGNS ---------------------------------------------- */
+.form-main label {
+    color: #B27EB3;
+    margin: 0.5% 0%;
+}
+.form-main input {
+    background: #f8e3f9;
+    border: 1px solid #e5bde6;
+    color: #B27EB3;
+    margin: 0.5% 0%;
+}
+.form-main ::placeholder {
+    color: #B27EB3;
+    opacity: 1; /* Firefox */
+}
+.form-main select {
+    background: #f8e3f9;
+    border: 1px solid #e5bde6;
+    color: #B27EB3;
+    margin: 0.5% 0%;
+}
+
+/* ----------------------------------------------------- COLORS ----------------------------------------------------- */
+.violet-color {
+    color: #9f2ca2;
+}
+.red-color {
+    color: #d3333c;
+}
+
+/* ----------------------------------------------------- NAVBAR ---------------------------------------------------- */
 
 header a, header a:hover {
     text-decoration: none;
@@ -104,6 +208,7 @@ ul li:hover {
     padding-bottom: 5%;
 }
 
+/* ------------------------------------------------------ FOOTER ------------------------------------------------- */
 
 #footer {
     height: 15vh;
@@ -140,6 +245,7 @@ ul li:hover {
     color: #ffffff;
 }
 
+/* ---------------------------------------------------- RESPONSIVE -------------------------------------------------- */
 @media only screen and (max-width: 600px) {
     header nav {
         display:none;
