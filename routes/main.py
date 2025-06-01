@@ -2,13 +2,20 @@ from flask import Blueprint, render_template, request, flash, session, url_for
 from extensions import login_manager, db, current_year
 from flask_login import current_user
 
+from models.member import Member
+
 main = Blueprint('main', __name__, static_folder='static', template_folder='templates')
 
 
 @main.route('/', methods=['GET', 'POST'])
 def home():
+    users_list = []
+    users = db.session.query(Member).all()
+    for u in users:
+        user_name = u.name
+        users_list.append(user_name)
     return render_template('index.html', logged_in=current_user.is_authenticated,
-                           current_year=current_year)
+                           current_year=current_year, users_list=users_list)
 
 
 @main.route('/team', methods=['GET', 'POST'])
