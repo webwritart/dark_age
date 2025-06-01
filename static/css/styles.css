@@ -8,8 +8,9 @@ body {
     background-color: #FFFFFF;
 }
 
-header a {
+header a, header a:hover {
     text-decoration: none;
+    color: white;
 }
 header {
     padding: 0 20px;
@@ -25,7 +26,7 @@ header {
     align-items: center;
 }
 #brand a {
-    color: #09c372;
+    color: white;
 }
 ul {
     list-style: none;
@@ -66,6 +67,7 @@ ul li:hover {
     margin: auto 0;
     display: none;
     cursor: pointer;
+    z-index: 999;
 }
 #hamburger-icon div {
     width: 35px;
@@ -82,8 +84,8 @@ ul li:hover {
     opacity: 0;
 }
 .open .bar3 {
-    -webkit-transform: rotate(45deg) translate(-6px, -8px);
-    transform: rotate(45deg) translate(-6px, 8px);
+    -webkit-transform: rotate(45deg) translate(-6px, -6px);
+    transform: rotate(45deg) translate(-6px, -6px);
 }
 .open .mobile-menu {
     display: flex;
@@ -96,9 +98,12 @@ ul li:hover {
     position: absolute;
     top: 50px;
     left: 0;
-    height: calc(100vh, -50px);
+    height: auto;
     width: 100%;
+    background: black;
+    padding-bottom: 5%;
 }
+
 
 #footer {
     height: 15vh;
@@ -109,6 +114,7 @@ ul li:hover {
     flex-direction: column;
     text-decoration: none;
     font-size: 0.9rem;
+    z-index: 5;
 }
 #footer_links {
     display: flex;
