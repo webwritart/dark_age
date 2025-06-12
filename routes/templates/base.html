@@ -77,8 +77,12 @@
       <ul>
         <li><a href="{{ url_for('main.team') }}">TEAM</a></li>
         <li><a href="{{ url_for('main.ad_samples') }}">AD SAMPLES</a></li>
+        {% if not logged_in %}
         <li id="login"><a href="{{ url_for('account.login') }}">LOGIN</a></li>
         <li id="signup"><a href="{{ url_for('account.register') }}">SIGNUP</a></li>
+        {% else %}
+        <li id="logout"><a class="violet-color" href="{{url_for('account.logout')}}"><b>LOGOUT</b></a></li>
+        {% endif %}
       </ul>
     </nav>
     <div id="hamburger-icon" onclick="toggleMobileMenu(this)">

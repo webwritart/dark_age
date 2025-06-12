@@ -24,11 +24,6 @@ def home():
     client = db.session.query(Role).filter_by(name='client').one_or_none()
     animation_admin = db.session.query(Role).filter_by(name='animation_admin').one_or_none()
     if current_user.is_authenticated:
-        if len(current_user.participated) > 0:
-            certificate = True
-        else:
-            certificate = False
-
         if request.method == 'POST':
             if request.form.get('whatsapp'):
                 current_user.whatsapp = request.form.get("whatsapp")

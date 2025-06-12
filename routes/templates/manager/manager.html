@@ -1,6 +1,86 @@
 {% extends 'base.html' %}
 {% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+          <div class="{{category}} text-center heading-small"><b>{{ message }}</b></div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<div class="default-form-container" style="padding-top:2%;">
+    <form class="form-main" action="{{ url_for('manager.home') }}" method="post">
+        <p class="text-center heading-small">ASSIGN ROLE</p>
+        <input type="email" placeholder="Member's email" name="email" required>
+        <select name="role" required>
+            <option value="default">Choose role</option>
+            {% for role in roles %}
+            <option value="{{role}}">{{role}}</option>
+            {% endfor %}
+        </select>
+        <button class="btn-1" type="submit" value="assign-role" name="submit">ASSIGN ROLE</button>
+    </form>
+</div>
+<div class="default-form-container">
+    <form class="form-main" action="{{ url_for('manager.home') }}" method="post">
+        <p class="text-center heading-small">REMOVE ROLE</p>
+        <input type="email" placeholder="Member's email" name="email" required>
+        <select name="role" required>
+            <option value="default">Choose role</option>
+            {% for role in roles %}
+            <option value="{{role}}">{{role}}</option>
+            {% endfor %}
+        </select>
+        <button class="btn-1" type="submit" value="remove-role" name="submit">REMOVE ROLE</button>
+    </form>
+</div>
 
-<h3>This is Manager Page</h3>
+<div class="default-form-container">
+    <form class="form-main" action="{{ url_for('manager.home') }}" method="post">
+        <p class="text-center heading-small">ASSIGN PROJECT</p>
+        <select name="promotion-team-member" required>
+            <option value="default">Choose promotion team member</option>
+            {% for member in promotion_team_members_list %}
+            <option value="{{member}}">{{member}}</option>
+            {% endfor %}
+        </select>
+        <select name="promotion-project" required>
+            <option value="default">Choose promotion project</option>
+            {% for project in promotion_project_list %}
+            <option value="{{project}}">{{project}}</option>
+            {% endfor %}
+        </select>
+        <select name="project-role" required>
+            <option value="default">Choose project role</option>
+            {% for role in project_roles_list %}
+            <option value="{{role}}">{{role}}</option>
+            {% endfor %}
+        </select>
+        <button class="btn-1" type="submit" value="assign-project" name="submit">ASSIGN PROJECT</button>
+    </form>
+</div>
+<div class="default-form-container">
+    <form class="form-main" action="{{ url_for('manager.home') }}" method="post">
+        <p class="text-center heading-small">REMOVE FROM PROJECT</p>
+        <select name="promotion-team-member" required>
+            <option value="default">Choose promotion team member</option>
+            {% for member in promotion_team_members_list %}
+            <option value="{{member}}">{{member}}</option>
+            {% endfor %}
+        </select>
+        <select name="promotion-project" required>
+            <option value="default">Choose promotion project</option>
+            {% for project in promotion_project_list %}
+            <option value="{{project}}">{{project}}</option>
+            {% endfor %}
+        </select>
+        <select name="project-role" required>
+            <option value="default">Choose project role</option>
+            {% for role in project_roles_list %}
+            <option value="{{role}}">{{role}}</option>
+            {% endfor %}
+        </select>
+        <button class="btn-1" type="submit" value="assign-project" name="submit">ASSIGN PROJECT</button>
+    </form>
+</div>
 
 {% endblock %}
