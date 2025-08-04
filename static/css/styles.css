@@ -146,11 +146,13 @@ header {
 #brand {
     font-weight: bold;
     font-size: 18px;
-    display: flex;
     align-items: center;
+    width:  100%;
+    display: flex;
 }
 #brand a {
     color: white;
+    padding-right:2%;
 }
 ul {
     list-style: none;
