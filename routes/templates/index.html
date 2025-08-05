@@ -2,27 +2,40 @@
 {% block content %}
 
 <style>
-    #character img {
-        margin-bottom: 1%;
+    .gallery-full-width {
+        width:100%;
+        background: black;
+    }
+    .gallery-full-width img {
+        padding-bottom: 1%;
+    }
+
+    .heading-extra-large {
+        background: black;
+        color: white;
     }
 </style>
+<div style="background: black; padding:2% 2%;">
+    <div class="heading-extra-large">
+        <p class="text-center">CHARACTER CONCEPT</p>
+    </div>
+    <div class="gallery-full-width">
+        <img src="static/images/character/c1.jpg" width="100%">
+        <img src="static/images/character/c2.jpg" width="100%">
+        <img src="static/images/character/c3.jpg" width="100%">
+    </div>
 
-<div class="heading-large">
-    <p class="text-center">CHARACTER CONCEPT</p>
-</div>
-<div id="character" style="width:100%; background: black;">
-    <img src="static/images/character/c1.jpg" width="100%">
-    <img src="static/images/character/c2.jpg" width="100%">
-    <img src="static/images/character/c3.jpg" width="100%">
-</div>
 
+    <div class="heading-extra-large">
+        <p class="text-center">ENVIRONMENT CONCEPT</p>
+    </div>
+    <div class="gallery-full-width">
+        <img src="static/images/environment/e1.jpg" width="100%">
+    </div>
 
-<div class="heading-large">
-    <p class="text-center">ENVIRONMENT CONCEPT</p>
-</div>
-
-<div class="heading-large">
-    <p class="text-center">PROPS AND OTHERS</p>
+    <div class="heading-extra-large">
+        <p class="text-center">PROPS AND OTHERS</p>
+    </div>
 </div>
 
 {% endblock %}
