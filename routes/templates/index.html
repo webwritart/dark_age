@@ -1,7 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p class="heading-large text-center">This is Homepage</p>
+<style>
+    #character img {
+        margin-bottom: 1%;
+    }
+</style>
 
+<div class="heading-large">
+    <p class="text-center">CHARACTER CONCEPT</p>
+</div>
+<div id="character" style="width:100%; background: black;">
+    <img src="static/images/character/c1.jpg" width="100%">
+    <img src="static/images/character/c2.jpg" width="100%">
+    <img src="static/images/character/c3.jpg" width="100%">
+</div>
+
+
+<div class="heading-large">
+    <p class="text-center">ENVIRONMENT CONCEPT</p>
+</div>
+
+<div class="heading-large">
+    <p class="text-center">PROPS AND OTHERS</p>
+</div>
 
 {% endblock %}
