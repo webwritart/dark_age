@@ -1,12 +1,12 @@
 import os
 
 from flask import Flask
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from extensions import mail
 from routes.main import main
 
 
-# load_dotenv()
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('APP_SECRET')

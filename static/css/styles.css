@@ -51,6 +51,7 @@ body {
 .btn-1:hover {
     background: #77067a;
     transform: scale(1.02);
+    color:white;
 }
 
 .btn-gray {
@@ -65,7 +66,9 @@ body {
 .btn-gray:hover {
     transform: scale(1.02);
 }
-
+.complete-profile {
+    font-size: 2rem;
+}
 /* --------------------------------------------------- FORMS-CONTAINERS --------------------------------------------- */
 .full-page-form-container {
     display: flex;
